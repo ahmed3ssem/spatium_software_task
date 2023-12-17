@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:spatium_software_task/config/routes/app_routes.dart';
 import 'package:spatium_software_task/core/utils/app_strings.dart';
 import 'package:spatium_software_task/feature/splash/presentation/widget/splash_text_item.dart';
 
@@ -10,6 +13,25 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  late Timer timer;
+
+  startTimer(){
+    timer = Timer(const Duration(seconds: 2), ()=> Navigator.pushNamed(context, Routes.numericRoutes));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

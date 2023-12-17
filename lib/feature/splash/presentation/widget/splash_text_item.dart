@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashTextItem extends StatelessWidget {
 
@@ -19,7 +20,8 @@ class SplashTextItem extends StatelessWidget {
           text: text.substring(i, i + 2),
           style: TextStyle(
             color: (i % 4 == 0) ? color1 : color2,
-            fontSize: 24, // Adjust font size as needed
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w700
           ),
         ),
       );
