@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:spatium_software_task/config/routes/app_routes.dart';
 import 'package:spatium_software_task/core/utils/app_colors.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/cubit/numeric_cubit.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/widget/numeric_item.dart';
@@ -67,7 +68,7 @@ class _NumericScreenState extends State<NumericScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.primaryColor2,
-        onPressed: (){},
+        onPressed: ()=>Navigator.pushNamed(context, Routes.graphRoutes),
         child: Icon(Icons.bar_chart , size: 18.sp, color:  AppColors.whiteColor,),
       ),
       appBar: AppBar(

@@ -6,6 +6,7 @@ import 'package:spatium_software_task/config/routes/app_routes.dart';
 import 'package:spatium_software_task/config/theme/app_theme.dart';
 import 'package:spatium_software_task/core/utils/app_strings.dart';
 import 'package:spatium_software_task/core/utils/local_strings.dart';
+import 'package:spatium_software_task/feature/graph/presentation/cubit/graph_cubit.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/cubit/numeric_cubit.dart';
 import 'injection_container.dart' as di;
 import 'widgets/message_widget.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => di.sl<NumericCubit>()),
+          BlocProvider(create: (context) => di.sl<GraphCubit>()),
         ],
         child: ScreenUtilInit(
             designSize: const Size(360, 690),

@@ -5,6 +5,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spatium_software_task/core/api/app_interceptor.dart';
 import 'package:spatium_software_task/core/api/dio_consumer.dart';
 import 'package:spatium_software_task/core/network/network_info.dart';
+import 'package:spatium_software_task/feature/graph/data/datasources/graph_remote_data_source.dart';
+import 'package:spatium_software_task/feature/graph/data/datasources/graph_remote_data_source_impl.dart';
+import 'package:spatium_software_task/feature/graph/data/repositories/graph_repository_impl.dart';
+import 'package:spatium_software_task/feature/graph/domain/repositories/graph_repository.dart';
+import 'package:spatium_software_task/feature/graph/domain/usecases/graph_usecase.dart';
+import 'package:spatium_software_task/feature/graph/presentation/cubit/graph_cubit.dart';
 import 'package:spatium_software_task/feature/numeric/data/datasources/numeric_remote_data_source.dart';
 import 'package:spatium_software_task/feature/numeric/data/datasources/numeric_remote_data_source_impl.dart';
 import 'package:spatium_software_task/feature/numeric/data/repositories/numeric_repository_impl.dart';
@@ -19,16 +25,20 @@ Future<void> init() async{
 
   //Blocs
   sl.registerFactory(() => NumericCubit(numericUseCase: sl()));
+  sl.registerFactory(() => GraphCubit(graphUseCase: sl()));
 
   //UseCase
   sl.registerLazySingleton(() => NumericUseCase(numericRepository: sl()));
+  sl.registerLazySingleton(() => GraphUseCase(graphRepository: sl()));
 
   //Repository
   sl.registerLazySingleton<NumericRepository>(() => NumericRepositoryImpl(numericRemoteDataSource: sl()));
+  sl.registerLazySingleton<GraphRepository>(() => GraphRepositoryImpl(graphRemoteDataSource: sl()));
 
 
   //DataSource
   sl.registerLazySingleton<NumericRemoteDataSource>(() => NumericRemoteDataSourceImpl());
+  sl.registerLazySingleton<GraphRemoteDataSource>(() => GraphRemoteDataSourceImpl());
 
 
   //Core
