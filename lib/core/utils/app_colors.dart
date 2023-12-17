@@ -23,4 +23,10 @@ class AppColors{
   static const blogContainerColor = Color(0xFFDDE1EC);
   static const lightBlue = Colors.blue;
   static const darkBlueColor = Color(0xFF213242);
+
+  static const itemOneColor = Color(0xFFFEFBDC);
+
+  static const itemTwoColor = Color(0xFFE9FFF3);
+
+  static const itemThreeColor = Color(0xFFF4EDFA);
 }

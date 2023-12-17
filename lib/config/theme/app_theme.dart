@@ -11,9 +11,14 @@ ThemeData appTheme(){
       fontFamily: AppStrings.fontName,
       brightness: Brightness.light,
       appBarTheme: AppBarTheme(
+          iconTheme:  IconThemeData(
+            color: AppColors.black,
+            size: 18.sp
+          ),
           centerTitle: true,
-          titleTextStyle: TextStyle(fontSize: 16.sp , fontWeight: FontWeight.bold),
-          backgroundColor: AppColors.primaryColor
+          titleTextStyle: TextStyle(fontSize: 16.sp , fontWeight: FontWeight.w400 , color: AppColors.black),
+          backgroundColor: AppColors.whiteColor,
+          elevation: 0,
       ),
       scaffoldBackgroundColor: AppColors.whiteColor,
       textTheme: TextTheme(

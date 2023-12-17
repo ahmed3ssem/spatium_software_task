@@ -14,7 +14,7 @@ class EmptyDataWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(AssetsManager.noDataImage , width: ScreenUtil().setWidth(80),height: ScreenUtil().setHeight(80),),
+          //Image.asset(AssetsManager.noDataImage , width: ScreenUtil().setWidth(80),height: ScreenUtil().setHeight(80),),
           Text('noData'.tr , style: TextStyle(fontSize: 20.sp , color: AppColors.grey , fontWeight: FontWeight.w600),)
         ],
       ),

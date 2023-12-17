@@ -8,7 +8,11 @@ class LocalStrings extends Translations {
     },
     'en_US': {
       "appName":"Claimizer",
-      "numericScreen":"Numeric Screen"
+      "numericScreen":"Numeric Screen",
+      "totalCount":"Total Count",
+      "averagePrice":"Average Price",
+      "numberOfReturns":"Number of Returns"
+
     },
   };
 }

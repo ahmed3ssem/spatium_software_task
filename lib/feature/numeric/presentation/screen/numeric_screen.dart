@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:spatium_software_task/core/utils/app_colors.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/cubit/numeric_cubit.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/widget/numeric_item.dart';
 import 'package:spatium_software_task/widgets/error_widget.dart';
@@ -26,25 +28,24 @@ class _NumericScreenState extends State<NumericScreen> {
           } else if (state is NumericError) {
             return ErrorWidgetItem(onTap: (){getData();},);
           } else if (state is NumericLoaded) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  NumericCard(
-                    title: 'Total Count',
-                    value: state.numericModel.totalCount.toString(),
-                  ),
-                  NumericCard(
-                    title: 'Average Price',
-                    value: state.numericModel.averagePrice.toString(),
-                  ),
-                  NumericCard(
-                    title: 'Number of Returns',
-                    value: state.numericModel.numberOfReturns.toString(),
-                  ),
-                ],
-              ),
+            return Column(
+              children: [
+                NumericCard(
+                  title: 'totalCount'.tr,
+                  value: state.numericModel.totalCount.toString(),
+                  color: AppColors.itemOneColor,
+                ),
+                NumericCard(
+                  title: 'averagePrice'.tr,
+                  value: state.numericModel.averagePrice.toString(),
+                  color: AppColors.itemTwoColor,
+                ),
+                NumericCard(
+                  title: 'numberOfReturns'.tr,
+                  value: state.numericModel.numberOfReturns.toString(),
+                  color: AppColors.itemThreeColor,
+                ),
+              ],
             );
           } else {
             return const Center(
@@ -64,6 +65,11 @@ class _NumericScreenState extends State<NumericScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.primaryColor2,
+        onPressed: (){},
+        child: Icon(Icons.bar_chart , size: 18.sp, color:  AppColors.whiteColor,),
+      ),
       appBar: AppBar(
         title: Text('numericScreen'.tr),
       ),
