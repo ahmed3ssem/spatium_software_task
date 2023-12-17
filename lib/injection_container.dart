@@ -5,6 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spatium_software_task/core/api/app_interceptor.dart';
 import 'package:spatium_software_task/core/api/dio_consumer.dart';
 import 'package:spatium_software_task/core/network/network_info.dart';
+import 'package:spatium_software_task/feature/numeric/data/datasources/numeric_remote_data_source.dart';
+import 'package:spatium_software_task/feature/numeric/data/datasources/numeric_remote_data_source_impl.dart';
+import 'package:spatium_software_task/feature/numeric/data/repositories/numeric_repository_impl.dart';
+import 'package:spatium_software_task/feature/numeric/domain/repositories/numeric_repository.dart';
+import 'package:spatium_software_task/feature/numeric/domain/usecases/numeric_usecase.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/cubit/numeric_cubit.dart';
 import 'core/api/api_consumer.dart';
 
@@ -13,17 +18,17 @@ final sl = GetIt.instance;
 Future<void> init() async{
 
   //Blocs
-  sl.registerFactory(() => NumericCubit());
+  sl.registerFactory(() => NumericCubit(numericUseCase: sl()));
 
   //UseCase
-  //sl.registerLazySingleton(() => LoginUseCase(loginRepository: sl()));
+  sl.registerLazySingleton(() => NumericUseCase(numericRepository: sl()));
 
   //Repository
-  //sl.registerLazySingleton<LoginRepository>(() => LoginRepositoryImpl(loginRemoteDataSource: sl() , networkInfo: sl()));
+  sl.registerLazySingleton<NumericRepository>(() => NumericRepositoryImpl(numericRemoteDataSource: sl()));
 
 
   //DataSource
-  //sl.registerLazySingleton<LoginRemoteDataSource>(() => LoginRemoteDataSourceImpl(consumer: sl()));
+  sl.registerLazySingleton<NumericRemoteDataSource>(() => NumericRemoteDataSourceImpl());
 
 
   //Core
