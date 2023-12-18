@@ -16,7 +16,8 @@ NumericRemoteDataSourceImpl();
     final totalCount = getTotalCount(ordersList);
     final averagePrice = getAveragePrice(ordersList);
     final numberOfReturns = getNumberOfReturns(ordersList);
-    NumericModel numericModel = NumericModel(totalCount: totalCount, averagePrice: averagePrice, numberOfReturns: numberOfReturns);
+    final buyerNumber = countUniqueBuyers(ordersList);
+    NumericModel numericModel = NumericModel(totalCount: totalCount, averagePrice: averagePrice, numberOfReturns: numberOfReturns , buyerNumber: buyerNumber);
     return numericModel;
   }
 
@@ -38,4 +39,14 @@ double parsePrice(String priceString) {
   int getNumberOfReturns(List<dynamic> items) {
     return items.where((element) => element.status == 'RETURNED').length;
  }
+
+int countUniqueBuyers(List items) {
+  Set<String> uniqueBuyers = <String>{};
+
+  for (var item in items) {
+    uniqueBuyers.add(item.buyer);
+  }
+
+  return uniqueBuyers.length;
+}
 }

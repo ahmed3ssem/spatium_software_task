@@ -31,15 +31,20 @@ class _NumericScreenState extends State<NumericScreen> {
             return ErrorWidgetItem(onTap: (){getData();},);
           } else if (state is NumericLoaded) {
             return GridView(
+              shrinkWrap: true,
+              physics: const AlwaysScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
+                mainAxisSpacing: 1,
+                childAspectRatio: 1.70,
+                crossAxisSpacing: 5
               ),
               children: [
                 NumericCard(
                   title: 'totalCount'.tr,
                   value: state.numericModel.totalCount.toString(),
                   color: AppColors.itemOneColor,
-                  image: AssetsManager.numeric,
+                  image: AssetsManager.orders,
                 ),
                 NumericCard(
                   title: 'averagePrice'.tr,
@@ -51,8 +56,14 @@ class _NumericScreenState extends State<NumericScreen> {
                   title: 'numberOfReturns'.tr,
                   value: state.numericModel.numberOfReturns.toString(),
                   color: AppColors.itemThreeColor,
-                  image: AssetsManager.numeric,
-                )
+                  image: AssetsManager.orders,
+                ),
+                NumericCard(
+                  title: 'numberOfBuyer'.tr,
+                  value: state.numericModel.buyerNumber.toString(),
+                  color: AppColors.itemOneColor,
+                  image: AssetsManager.person,
+                ),
               ],
             );
           } else {

@@ -4,5 +4,7 @@ class NumericModel{
   final averagePrice;
   final numberOfReturns;
 
-  NumericModel({required this.totalCount,required this.averagePrice, required this.numberOfReturns});
+  final buyerNumber;
+
+  NumericModel({required this.totalCount,required this.averagePrice, required this.numberOfReturns , required this.buyerNumber});
 }

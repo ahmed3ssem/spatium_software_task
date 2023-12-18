@@ -11,7 +11,8 @@ class LocalStrings extends Translations {
       "numericScreen":"Numeric Screen",
       "totalCount":"Total Count",
       "averagePrice":"Average Price",
-      "numberOfReturns":"Number of Returns",
+      "numberOfReturns":"Returns Number",
+      "numberOfBuyer":"Buyers Number",
       "graph":"Graph"
 
     },

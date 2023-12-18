@@ -6,45 +6,53 @@ class NumericCard extends StatelessWidget {
   final String title;
   final String value;
   final Color color;
-
   final String image;
 
-  const NumericCard({super.key,
+  const NumericCard({
+    super.key,
     required this.title,
     required this.value,
     required this.color,
-    required this.image
+    required this.image,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(10) , vertical: ScreenUtil().setHeight(10)),
-      alignment: Alignment.topLeft,
-      padding: EdgeInsets.all(10.sp),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: const BorderRadius.all(Radius.circular(10))
-      ),
-      child: Column(
-        children: [
-          Container(
-            alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(3)),
-            child: Text(title , style: TextStyle(fontWeight: FontWeight.w700 , color: AppColors.black , fontSize: 16.sp),),
+      margin: EdgeInsets.all(ScreenUtil().setWidth(10)),
+      child: ConstrainedBox(
+        constraints:   BoxConstraints(maxHeight: ScreenUtil().setHeight(70), minHeight: ScreenUtil().setHeight(70)), // Adjust the height as needed
+        child: Card(
+          color: color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-          Row(
-            children: [
-              Image.asset(image , width: ScreenUtil().setWidth(15),height: ScreenUtil().setHeight(15),),
-              SizedBox(width: ScreenUtil().setWidth(5),),
-              Container(
-                margin: EdgeInsets.only(top: ScreenUtil().setHeight(5)),
-                child: Text(value, style: TextStyle(fontWeight: FontWeight.w400 , color: AppColors.black , fontSize: 14.sp),),
-              )
-            ],
-          )
-        ],
+          child: Padding(
+            padding: EdgeInsets.all(12.sp),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.black, fontSize: 16.sp),
+                ),
+                SizedBox(height: ScreenUtil().setHeight(5)),
+                Row(
+                  children: [
+                    Image.asset(image, width: ScreenUtil().setWidth(15), height: ScreenUtil().setHeight(15)),
+                    SizedBox(width: ScreenUtil().setWidth(5)),
+                    Text(
+                      value,
+                      style: TextStyle(fontWeight: FontWeight.w400, color: AppColors.black, fontSize: 14.sp),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
 }
+

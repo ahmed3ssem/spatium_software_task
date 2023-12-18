@@ -1,16 +1,23 @@
 # spatium_software_task
 
-A new Flutter project.
+## Table of Contents
+- [Installation]
+- [Usage])
+- [Features]
+- [License]
 
-## Getting Started
+## Installation
+You can find app-release.apk in the root , download it , and open it.
 
-This project is a starting point for a Flutter application.
+## Usage
+Instructions on how to use the project, including code examples or commands.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
+- Splash Screen 
+- Numeric Screen that contain details about orders
+- Graph Screen that contain line chart show details between number of months and number of orders 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## License
+Specify the project's license information.
+
