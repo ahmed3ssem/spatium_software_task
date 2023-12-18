@@ -34,6 +34,7 @@ class SimpleLineChart extends StatelessWidget {
     return charts.LineChart(
       seriesList,
       animate: animate,
+      animationDuration: const Duration(seconds: 4),
       defaultRenderer: charts.LineRendererConfig(
         includePoints: true,
         includeArea: true,

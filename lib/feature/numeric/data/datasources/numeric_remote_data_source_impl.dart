@@ -25,13 +25,14 @@ NumericRemoteDataSourceImpl();
  }
 
 double parsePrice(String priceString) {
-  final cleanedString = priceString.replaceAll(RegExp(r'[^0-9\.]'), '');
+  final cleanedString = priceString.replaceAll(RegExp(r'[^0-9.]'), '');
   return double.parse(cleanedString);
 }
 
  double getAveragePrice(List<dynamic> items) {
    final totalPrice = items.fold(0.0, (prev, item) => prev + parsePrice(item.price));
-   return totalPrice / items.length;
+   final average = totalPrice / items.length;
+   return double.parse(average.toStringAsFixed(3));
  }
 
   int getNumberOfReturns(List<dynamic> items) {

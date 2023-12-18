@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:spatium_software_task/core/utils/app_colors.dart';
-import 'package:spatium_software_task/core/utils/assets_manager.dart';
 
 class NumericCard extends StatelessWidget {
   final String title;
   final String value;
-
   final Color color;
+
+  final String image;
 
   const NumericCard({super.key,
     required this.title,
     required this.value,
-    required this.color
+    required this.color,
+    required this.image
   });
 
   @override
@@ -34,7 +35,7 @@ class NumericCard extends StatelessWidget {
           ),
           Row(
             children: [
-              Image.asset(AssetsManager.numeric , width: ScreenUtil().setWidth(15),height: ScreenUtil().setHeight(15),),
+              Image.asset(image , width: ScreenUtil().setWidth(15),height: ScreenUtil().setHeight(15),),
               SizedBox(width: ScreenUtil().setWidth(5),),
               Container(
                 margin: EdgeInsets.only(top: ScreenUtil().setHeight(5)),

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:spatium_software_task/config/routes/app_routes.dart';
 import 'package:spatium_software_task/core/utils/app_colors.dart';
+import 'package:spatium_software_task/core/utils/assets_manager.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/cubit/numeric_cubit.dart';
 import 'package:spatium_software_task/feature/numeric/presentation/widget/numeric_item.dart';
 import 'package:spatium_software_task/widgets/error_widget.dart';
@@ -29,23 +30,29 @@ class _NumericScreenState extends State<NumericScreen> {
           } else if (state is NumericError) {
             return ErrorWidgetItem(onTap: (){getData();},);
           } else if (state is NumericLoaded) {
-            return Column(
+            return GridView(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
               children: [
                 NumericCard(
                   title: 'totalCount'.tr,
                   value: state.numericModel.totalCount.toString(),
                   color: AppColors.itemOneColor,
+                  image: AssetsManager.numeric,
                 ),
                 NumericCard(
                   title: 'averagePrice'.tr,
                   value: state.numericModel.averagePrice.toString(),
                   color: AppColors.itemTwoColor,
+                  image: AssetsManager.numeric,
                 ),
                 NumericCard(
                   title: 'numberOfReturns'.tr,
                   value: state.numericModel.numberOfReturns.toString(),
                   color: AppColors.itemThreeColor,
-                ),
+                  image: AssetsManager.numeric,
+                )
               ],
             );
           } else {
