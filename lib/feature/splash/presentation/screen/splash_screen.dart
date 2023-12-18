@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   late Timer timer;
 
   startTimer(){
-    timer = Timer(const Duration(seconds: 2), ()=> Navigator.pushNamed(context, Routes.numericRoutes));
+    timer = Timer(const Duration(seconds: 2), ()=> Navigator.pushReplacementNamed(context, Routes.numericRoutes));
   }
 
   @override
